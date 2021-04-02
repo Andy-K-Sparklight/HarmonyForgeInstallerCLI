@@ -1,7 +1,6 @@
 package rarityeg.alicorn;
 
 import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class LegacyForgeInstaller {
@@ -29,7 +28,7 @@ public class LegacyForgeInstaller {
                 }
             }
 
-        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return 1;
