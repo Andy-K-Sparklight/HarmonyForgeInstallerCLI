@@ -43,7 +43,7 @@ HarmonyForgeInstallerCLI 保留了原始输出，未作任何更改。如果程�
 
 - 拉取 Forge 安装器的官方仓库，并手动编译代码（不建议使用 Forge 提供的
   Gradle，使用常规编译方法即可）：`git clone https://github.com/MinecraftForge/Installer.git`
-- 拉取本仓库：`git clone git clone https://RarityEG@bitbucket.org/RarityEG/harmonyforgeinstallercli.git`
+- 拉取本仓库：`git clone https://RarityEG@bitbucket.org/RarityEG/harmonyforgeinstallercli.git`
 
 - 在本仓库中添加从 Forge 安装器中构建的 Jar（例如使用 IDEA 的 Libraries），其中需要包含以下类：
 
