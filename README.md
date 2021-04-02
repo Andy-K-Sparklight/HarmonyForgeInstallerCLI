@@ -14,9 +14,10 @@
 
 ## 怎么做？
 
-首先，下载最新的发行版。
+首先，下载[最新的发行版](https://bitbucket.org/RarityEG/harmonyforgeinstallercli/downloads/HarmonyForgeInstallerCLI-internal.jar)。
 
-然后，下载你需要的 Forge 安装器。目前，1.16.5 和 1.12.2 的安装器已经通过测试，但理论上 1.12.2 至 1.16.5 的任何 Forge 版本都可以安装。由于 [MCBBS](https://www.mcbbs.net) 建议的「最低不过期版本」为 1.12.2，因此未测试 1.12.2 之前的版本（不含），但理论上也可以工作。
+然后，下载你需要的 Forge 安装器。目前，1.16.5 和 1.12.2 的安装器已经通过测试，但理论上 1.12.2 至 1.16.5 的任何 Forge
+版本都可以安装。由于 [MCBBS](https://www.mcbbs.net) 建议的「最低不过期版本」为 1.12.2，因此未测试 1.12.2 之前的版本（不含），但理论上也可以工作。
 
 ```shell
 # Windows
@@ -40,12 +41,13 @@ HarmonyForgeInstallerCLI 保留了原始输出，未作任何更改。如果程�
 
 要编译 HarmonyForgeInstallerCLI，请这样做：
 
-- 拉取 Forge 安装器的官方仓库，并手动编译代码（不建议使用 Forge 提供的 Gradle，使用常规编译方法即可）：`git clone https://github.com/MinecraftForge/Installer.git`
+- 拉取 Forge 安装器的官方仓库，并手动编译代码（不建议使用 Forge 提供的
+  Gradle，使用常规编译方法即可）：`git clone https://github.com/MinecraftForge/Installer.git`
 - 拉取本仓库：`git clone git clone https://RarityEG@bitbucket.org/RarityEG/harmonyforgeinstallercli.git`
 
 - 在本仓库中添加从 Forge 安装器中构建的 Jar（例如使用 IDEA 的 Libraries），其中需要包含以下类：
 
-  ```java
+  ```
   net.minecraftforge.installer.SimpleInstaller;
   net.minecraftforge.installer.actions.ClientInstall;
   net.minecraftforge.installer.actions.ProgressCallback;
@@ -59,7 +61,8 @@ HarmonyForgeInstallerCLI 保留了原始输出，未作任何更改。如果程�
 
 > 是的，把它贡献出来。
 
-本项目使用 GNU 通用公共许可证（第三版，GPL-3.0）授权，**没有任何保证**，您可以自由地（包括但不限于）修改，使用和重新分发它，这些行为有一些限制，详情参阅 https://www.gnu.org/licenses/gpl-3.0.html
+本项目使用 GNU 通用公共许可证（第三版，GPL-3.0）授权，**没有任何保证**
+，您可以自由地（包括但不限于）修改，使用和重新分发它，这些行为有一些限制，详情参阅 https://www.gnu.org/licenses/gpl-3.0.html
 
 ## 本项目作者
 
