@@ -41,12 +41,11 @@ HarmonyForgeInstallerCLI 保留了原始输出，未作任何更改。如果程�
 
 要编译 HarmonyForgeInstallerCLI，请这样做：
 
-- 设置开发环境：
-  - OpenJDK/Java 版本：建议使用 Java 标准 8（字节码版本 52.0）进行编译，以免出现兼容性问题。
+- OpenJDK/Java 版本：建议使用 Java 标准 8（字节码版本 52.0）进行编译，以免出现兼容性问题。
 
 - 拉取 Forge 安装器的官方仓库，并手动编译代码（不建议使用 Forge 提供的
   Gradle，使用常规编译方法即可）：`git clone https://github.com/MinecraftForge/Installer.git`
-  
+
 - 拉取本仓库：`git clone https://RarityEG@bitbucket.org/RarityEG/harmonyforgeinstallercli.git`
 
 - 在本仓库中添加从 Forge 安装器中构建的 Jar（例如使用 IDEA 的 Libraries），其中需要包含以下类：
