@@ -16,7 +16,7 @@
 
 ## 怎么做？
 
-**注意：自 2020/07/29 开始，本项目不再在 Bitbucket 更新。**
+**注意：自 2021/07/29 开始，本项目不再在 Bitbucket 更新。**
 
 首先，下载[最新的发行版](https://github.com/Andy-K-Sparklight/HarmonyForgeInstallerCLI/releases)。
 
