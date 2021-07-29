@@ -10,9 +10,13 @@
 
 该工具的作用就是从命令行启动 Forge 的安装程序，仅用于客户端（因为服务端的安装命令在 Forge 安装器中已经提供）。
 
+<<<<<<< HEAD
 我们**希望** Forge 是**疏忽**而没有做 `-installClient` 参数，而不是**为了某种利益故意移除了**这个参数，甚至为此（在某种程度上）牺牲用户的自由，这不是一个自由软件该做的事情。
 
 > 自由之零：**不论目的为何**，有运行该软件的自由。
+=======
+我们**姑且相信** Forge 是**疏忽**而没有做 `-installClient` 参数，而不是**为了某种利益故意移除了**这个参数。
+>>>>>>> cabc7c3a681d3f6ff3709c5067adbe67c3c31991
 
 ## 怎么做？
 
@@ -45,6 +49,7 @@ HarmonyForgeInstallerCLI 保留了原始输出，未作任何更改。如果程�
 
 - OpenJDK/Java 版本：建议使用 Java 标准 8（字节码版本 52.0）进行编译，以免出现兼容性问题。
 
+<<<<<<< HEAD
 - ~~拉取 Forge 安装器的官方仓库，并手动编译代码（不建议使用 Forge 提供的
   Gradle，使用常规编译方法即可）：`git clone https://github.com/MinecraftForge/Installer.git`~~
   
@@ -54,6 +59,15 @@ HarmonyForgeInstallerCLI 保留了原始输出，未作任何更改。如果程�
 
 - ~~在本仓库中添加从 Forge 安装器中构建的 Jar（例如使用 IDEA 的 Libraries），其中需要包含以下类：~~（现在不再需要了）
   
+=======
+- 拉取 Forge 安装器的官方仓库，并手动编译代码（不建议使用 Forge 提供的
+  Gradle，使用常规编译方法即可）：`git clone https://github.com/MinecraftForge/Installer.git`
+
+- 拉取本仓库：`git clone https://RarityEG@bitbucket.org/RarityEG/harmonyforgeinstallercli.git`
+
+- 在本仓库中添加从 Forge 安装器中构建的 Jar（例如使用 IDEA 的 Libraries），其中需要包含以下类：
+
+>>>>>>> cabc7c3a681d3f6ff3709c5067adbe67c3c31991
   ```
   net.minecraftforge.installer.SimpleInstaller;
   net.minecraftforge.installer.actions.ClientInstall;
@@ -80,7 +94,11 @@ JCL      - ab07c6a8fd based on jdk8u282-b08)
 > 是的，把它贡献出来。
 
 本项目使用 GNU 通用公共许可证（第三版，GPL-3.0）授权，**没有任何保证**
+<<<<<<< HEAD
 ，您可以自由地（包括但不限于）修改，使用和重新分发它，这些行为有一些前提，详情参阅 https://www.gnu.org/licenses/gpl-3.0.html
+=======
+，您可以自由地（包括但不限于）修改，使用和重新分发它，这些行为有一些限制，详情参阅 https://www.gnu.org/licenses/gpl-3.0.html
+>>>>>>> cabc7c3a681d3f6ff3709c5067adbe67c3c31991
 
 ## 本项目作者
 
