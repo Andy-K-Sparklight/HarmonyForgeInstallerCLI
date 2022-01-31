@@ -3,8 +3,9 @@ package rarityeg.alicorn;
 import java.io.File;
 import java.lang.reflect.Method;
 
-public class LegacyForgeInstaller {
-    public static int installClient(String path) {
+public class Method4 extends AbstractForgeInstaller {
+    @Override
+    public int installClient(String path) {
         try {
             Class<?> versionInfoC = Class.forName("net.minecraftforge.installer.VersionInfo");
             Method getVersionTargetM = versionInfoC.getMethod("getVersionTarget");
@@ -12,26 +13,20 @@ public class LegacyForgeInstaller {
             Class<?> installerActionC = Class.forName("net.minecraftforge.installer.InstallerAction");
             Object[] installerActionE = installerActionC.getEnumConstants();
             Method getName = installerActionC.getMethod("name");
-
-            Class<?> gpC = Class.forName("com.google.common.base.Predicates");
-            Class<?> gpCS = Class.forName("com.google.common.base.Predicate");
-            Method makeRunM = installerActionC.getMethod("run", File.class, gpCS);
-            Method alwaysTrueM = gpC.getMethod("alwaysTrue");
-            Object predicateI = alwaysTrueM.invoke(null);
+            Method makeRunM = installerActionC.getMethod("run", File.class);
             for (Object o : installerActionE) {
                 Object iaCurrent = installerActionC.cast(o);
                 String name = (String) getName.invoke(iaCurrent);
                 if (name.equals("CLIENT")) {
-                    if ((boolean) makeRunM.invoke(iaCurrent, new File(path), gpCS.cast(predicateI))) {
+                    if ((boolean) makeRunM.invoke(iaCurrent, new File(path))) {
                         return 0;
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
+
         }
         return 1;
     }
-
 }

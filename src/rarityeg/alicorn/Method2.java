@@ -7,11 +7,12 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.function.Predicate;
 
-public class MediumForgeInstaller {
-    public static int installClient(String path) {
+public class Method2 extends AbstractForgeInstaller {
+    @Override
+    public  int installClient(String path) {
         try {
             Class<?> cUtil = Class.forName("net.minecraftforge.installer.json.Util");
-            Class<?> cInstall = Class.forName("net.minecraftforge.installer.json.Install");
+            Class<?> cInstall = Class.forName("net.minecraftforge.installer.json.InstallV1");
             Class<?> cProgressCallback = Class.forName("net.minecraftforge.installer.actions.ProgressCallback");
             Class<?> cClientInstall = Class.forName("net.minecraftforge.installer.actions.ClientInstall");
             Class<?> cSimpleInstaller = Class.forName("net.minecraftforge.installer.SimpleInstaller");
@@ -24,9 +25,9 @@ public class MediumForgeInstaller {
             Object clientInstall = conClientInstall.newInstance(profile, output); // ClientInstall
             Field headless = cSimpleInstaller.getField("headless");
             headless.setBoolean(null, true);
-            Method mRun = cClientInstall.getMethod("run", File.class, Predicate.class);
+            Method mRun = cClientInstall.getMethod("run", File.class, Predicate.class, File.class);
             Predicate<?> p = o -> true;
-            Object state = mRun.invoke(clientInstall, new File(path), p);
+            Object state = mRun.invoke(clientInstall, new File(path), p, new File(""));
             if ((boolean) state) {
                 return 0;
             }

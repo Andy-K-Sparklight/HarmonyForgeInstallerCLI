@@ -8,30 +8,24 @@ public class ForgeInstallerWrapper {
         } else {
             path = args[0];
         }
-        if (isLegacy()) {
-            System.exit(LegacyForgeInstaller.installClient(path));
-        } else if (isMedium()) {
-            System.exit(MediumForgeInstaller.installClient(path));
-        } else {
-            System.exit(ModernForgeInstaller.installClient(path));
-        }
+        System.exit(getProperInstaller().installClient(path));
     }
 
-    private static boolean isLegacy() {
-        try {
-            Class.forName("net.minecraftforge.installer.actions.ClientInstall");
-            return false;
-        } catch (Exception ignored) {
-            return true;
+    private static AbstractForgeInstaller getProperInstaller() {
+        final String[] method1 = {"net.minecraftforge.installer.VersionInfo", "net.minecraftforge.installer.InstallerAction", "com.google.common.base.Predicates", "com.google.common.base.Predicate"};
+        final String[] method2 = {"net.minecraftforge.installer.json.Util", "net.minecraftforge.installer.json.InstallV1", "net.minecraftforge.installer.actions.ProgressCallback", "net.minecraftforge.installer.actions.ClientInstall", "net.minecraftforge.installer.SimpleInstaller"};
+        final String[] method3 = {"net.minecraftforge.installer.json.Util", "net.minecraftforge.installer.json.Install", "net.minecraftforge.installer.actions.ProgressCallback", "net.minecraftforge.installer.actions.ClientInstall", "net.minecraftforge.installer.SimpleInstaller"};
+        if (Util.wantClass(method1)) {
+            return new Method1();
         }
-    }
-
-    private static boolean isMedium() {
-        try {
-            Class.forName("net.minecraftforge.installer.json.InstallV1");
-            return false;
-        } catch (Exception ignored) {
-            return true;
+        if (Util.wantClass(method2)) {
+            return new Method2();
         }
+        if (Util.wantClass(method3)) {
+            return new Method3();
+        }
+        return new Method4();
+        // This ancient method does not work now since some mirrors have been removed...
+        // But we should at least let users know it's not our fault :(
     }
 }
