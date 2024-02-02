@@ -11,6 +11,10 @@ public class ForgeInstallerWrapper {
         System.exit(getProperInstaller().installClient(path));
     }
 
+    public static int install(String path) {
+        return getProperInstaller().installClient(path);
+    }
+
     private static AbstractForgeInstaller getProperInstaller() {
         final String[] method1 = {"net.minecraftforge.installer.VersionInfo", "net.minecraftforge.installer.InstallerAction", "com.google.common.base.Predicates", "com.google.common.base.Predicate"};
         final String[] method2 = {"net.minecraftforge.installer.json.Util", "net.minecraftforge.installer.json.InstallV1", "net.minecraftforge.installer.actions.ProgressCallback", "net.minecraftforge.installer.actions.ClientInstall", "net.minecraftforge.installer.SimpleInstaller"};
